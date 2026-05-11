@@ -1,0 +1,287 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum EventCategory {
+  CONFERENCE
+  WORKSHOP
+  NETWORKING
+  SOCIAL
+  BUSINESS
+  ENTERTAINMENT
+  SPORTS
+  EDUCATION
+  CULTURAL
+  OTHER
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum BookingStatus {
+  CONFIRMED
+  CANCELLED
+  PENDING
+}
+
+enum WaitlistStatus {
+  ACTIVE
+  NOTIFIED
+  EXPIRED
+}
+
+model User {
+  id               String            @id @default(cuid())
+  email            String            @unique
+  name             String?
+  password         String
+  role             UserRole          @default(USER)
+  bookings         Booking[]
+  payments         Payment[]
+  waitlist         Waitlist[]
+  pushSubscription PushSubscription?
+  mfaEnabled       Boolean           @default(false)
+  mfaSecret            String?
+  isEmailVerified      Boolean           @default(false)
+  verifyToken          String?
+  resetPasswordToken   String?
+  resetPasswordExpires DateTime?
+  createdAt            DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  @@map("users")
+}
+
+model Event {
+  id                String        @id @default(cuid())
+  name              String
+  description       String?
+  venue             String // Legacy venue string
+  venueDetails      Venue?        @relation("EventVenue", fields: [venueId], references: [id])
+  venueId           String? // Optional reference to Venue model
+  startTime         DateTime
+  endTime           DateTime?
+  capacity          Int
+  availableCapacity Int
+  price             Decimal       @default(0) @db.Decimal(10, 2)
+  category          EventCategory @default(OTHER)
+  tags              String[] // Array of tags for better filtering
+  imageUrl          String? // Event image
+  version           Int           @default(0) // For optimistic locking
+  seatLevelBooking  Boolean       @default(false) // Enable seat selection for this event
+  bookings          Booking[]
+  waitlist          Waitlist[]
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@index([startTime])
+  @@index([category])
+  @@index([price])
+  @@map("events")
+}
+
+model Booking {
+  id             String        @id @default(cuid())
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  event          Event         @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId        String
+  quantity       Int           @default(1)
+  totalPrice     Decimal       @default(0) @db.Decimal(10, 2)
+  status         BookingStatus @default(CONFIRMED)
+  idempotencyKey String? // For preventing duplicate bookings
+  seatBookings   SeatBooking[] // For seat-level bookings
+  payments       Payment[] // One booking can have multiple payment attempts
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  @@unique([idempotencyKey, userId]) // Prevent duplicate bookings
+  @@index([userId])
+  @@index([eventId])
+  @@index([status])
+  @@map("bookings")
+}
+
+model Waitlist {
+  id         String         @id @default(cuid())
+  user       User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+  event      Event          @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId    String
+  position   Int // Position in the waitlist queue
+  status     WaitlistStatus @default(ACTIVE)
+  notifiedAt DateTime? // When user was notified about available spot
+  expiresAt  DateTime? // When the notification expires
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+
+  @@unique([userId, eventId]) // A user can only be on waitlist once per event
+  @@index([eventId, position])
+  @@index([status])
+  @@map("waitlist")
+}
+
+model Payment {
+  id             String        @id @default(cuid())
+  booking        Booking       @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  bookingId      String
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  amount         Decimal       @db.Decimal(10, 2)
+  currency       String        @default("INR")
+  paymentMethod  String // "card", "paypal", "stripe", etc.
+  transactionId  String? // External payment processor transaction ID
+  status         PaymentStatus @default(PENDING)
+  paymentDetails Json? // Store card details, etc. (encrypted in real app)
+  failureReason  String? // Reason for payment failure
+  processedAt    DateTime? // When payment was processed
+  refunds        Refund[] // One payment can have multiple refunds
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  @@index([userId])
+  @@index([bookingId])
+  @@index([status])
+  @@index([transactionId])
+  @@map("payments")
+}
+
+model Refund {
+  id                  String       @id @default(cuid())
+  payment             Payment      @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+  paymentId           String
+  amount              Decimal      @db.Decimal(10, 2)
+  reason              String
+  status              RefundStatus @default(PENDING)
+  refundTransactionId String? // External processor refund transaction ID
+  processedAt         DateTime? // When refund was processed
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @updatedAt
+
+  @@index([paymentId])
+  @@index([status])
+  @@map("refunds")
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  REFUNDED
+  CANCELLED
+}
+
+enum RefundStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model PushSubscription {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String   @unique // One subscription per user
+  endpoint  String
+  p256dhKey String
+  authKey   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("push_subscriptions")
+}
+
+model Venue {
+  id          String         @id @default(cuid())
+  name        String
+  address     String?
+  capacity    Int
+  description String?
+  layout      Json? // Store seat layout as JSON
+  sections    VenueSection[]
+  events      Event[]        @relation("EventVenue")
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@map("venues")
+}
+
+model VenueSection {
+  id              String   @id @default(cuid())
+  venue           Venue    @relation(fields: [venueId], references: [id], onDelete: Cascade)
+  venueId         String
+  name            String // e.g., "Section A", "VIP", "General Admission"
+  capacity        Int
+  priceMultiplier Decimal  @default(1.0) @db.Decimal(3, 2) // Price multiplier for this section
+  seats           Seat[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("venue_sections")
+}
+
+model Seat {
+  id        String        @id @default(cuid())
+  section   VenueSection  @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  sectionId String
+  row       String // e.g., "A", "B", "1", "2"
+  number    String // e.g., "1", "2", "15"
+  seatType  SeatType      @default(REGULAR)
+  isBlocked Boolean       @default(false) // For maintenance, VIP, etc.
+  bookings  SeatBooking[]
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  @@unique([sectionId, row, number])
+  @@map("seats")
+}
+
+model SeatBooking {
+  id        String   @id @default(cuid())
+  booking   Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  bookingId String
+  seat      Seat     @relation(fields: [seatId], references: [id], onDelete: Cascade)
+  seatId    String
+  price     Decimal  @db.Decimal(10, 2) // Actual price paid for this seat
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([bookingId, seatId])
+  @@map("seat_bookings")
+}
+
+enum SeatType {
+  REGULAR
+  VIP
+  PREMIUM
+  ACCESSIBLE
+  STANDING
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  action    String   // e.g., "USER_LOGIN", "BOOKING_CREATED", "EVENT_DELETED"
+  userId    String?
+  targetId  String?  // The ID of the affected resource
+  details   Json?    // Any extra info
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  @@index([action])
+  @@index([userId])
+  @@map("audit_logs")
+}

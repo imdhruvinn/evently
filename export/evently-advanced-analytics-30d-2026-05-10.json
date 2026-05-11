@@ -1,0 +1,527 @@
+{
+  "timestamp": "2026-05-10T12:14:32.389Z",
+  "timeframe": "30d",
+  "overview": {
+    "totalEvents": 6,
+    "totalBookings": 9,
+    "totalRevenue": 2791.7599999999998,
+    "totalUsers": 4,
+    "activeUsers": 0,
+    "conversionRate": 225,
+    "averageEventCapacity": 1857.142857142857,
+    "popularVenues": [
+      {
+        "venue": "IITRAM Campus",
+        "eventCount": 1
+      },
+      {
+        "venue": "PDEU Sports Complex",
+        "eventCount": 1
+      },
+      {
+        "venue": "Tech Campus Building A",
+        "eventCount": 1
+      },
+      {
+        "venue": "Downtown Exhibition Hall",
+        "eventCount": 1
+      },
+      {
+        "venue": "Grand Theater",
+        "eventCount": 1
+      }
+    ],
+    "revenueGrowth": 0,
+    "userGrowth": 100,
+    "bookingGrowth": 0
+  },
+  "events": {
+    "topPerformingEvents": [
+      {
+        "id": "cmozqhqb100066lt522frwis0",
+        "name": "SKI",
+        "bookings": 0,
+        "revenue": 0,
+        "capacityUtilization": 0
+      },
+      {
+        "id": "cmoyl3r5i00086ljz21eaye4r",
+        "name": "PDEU Sports Championship",
+        "bookings": 0,
+        "revenue": 0,
+        "capacityUtilization": 0
+      },
+      {
+        "id": "cmoyl3r5g00076ljzi7ya9lu0",
+        "name": "AI Workshop - Premium Seating",
+        "bookings": 1,
+        "revenue": 149.99,
+        "capacityUtilization": 2
+      },
+      {
+        "id": "cmoyl3r5e00066ljzhg96wo2f",
+        "name": "Food & Wine Expo",
+        "bookings": 0,
+        "revenue": 0,
+        "capacityUtilization": 0
+      },
+      {
+        "id": "cmoyl3r5b00056ljzlzw2yu83",
+        "name": "Theater Show - BookMyShow Style",
+        "bookings": 6,
+        "revenue": 455.93999999999994,
+        "capacityUtilization": 6
+      },
+      {
+        "id": "cmoyl3r5700046ljzpyzptkn7",
+        "name": "Summer Music Festival",
+        "bookings": 1,
+        "revenue": 199.99,
+        "capacityUtilization": 0.01
+      },
+      {
+        "id": "cmoyl3r5200036ljznoa34ij3",
+        "name": "Tech Conference 2025",
+        "bookings": 1,
+        "revenue": 299.99,
+        "capacityUtilization": 0.2
+      }
+    ],
+    "eventsByCategory": [
+      {
+        "category": "OTHER",
+        "count": 7,
+        "revenue": 1105.9099999999999
+      }
+    ],
+    "eventsByVenue": [
+      {
+        "venue": "IITRAM Campus",
+        "count": 1,
+        "avgBookings": 0
+      },
+      {
+        "venue": "PDEU Sports Complex",
+        "count": 1,
+        "avgBookings": 0
+      },
+      {
+        "venue": "Tech Campus Building A",
+        "count": 1,
+        "avgBookings": 1
+      },
+      {
+        "venue": "Downtown Exhibition Hall",
+        "count": 1,
+        "avgBookings": 0
+      },
+      {
+        "venue": "Grand Theater",
+        "count": 1,
+        "avgBookings": 6
+      },
+      {
+        "venue": "Central Park Amphitheater",
+        "count": 1,
+        "avgBookings": 1
+      },
+      {
+        "venue": "San Francisco Convention Center",
+        "count": 1,
+        "avgBookings": 1
+      }
+    ],
+    "upcomingEvents": [
+      {
+        "id": "cmozqhqb100066lt522frwis0",
+        "name": "SKI",
+        "startTime": "2026-05-12T06:43:00.000Z",
+        "bookings": 0,
+        "capacity": 50
+      },
+      {
+        "id": "cmoyl3r5i00086ljz21eaye4r",
+        "name": "PDEU Sports Championship",
+        "startTime": "2026-07-15T08:00:00.000Z",
+        "bookings": 0,
+        "capacity": 2000
+      },
+      {
+        "id": "cmoyl3r5g00076ljzi7ya9lu0",
+        "name": "AI Workshop - Premium Seating",
+        "startTime": "2026-09-01T09:00:00.000Z",
+        "bookings": 1,
+        "capacity": 50
+      },
+      {
+        "id": "cmoyl3r5e00066ljzhg96wo2f",
+        "name": "Food & Wine Expo",
+        "startTime": "2026-08-05T12:00:00.000Z",
+        "bookings": 0,
+        "capacity": 300
+      },
+      {
+        "id": "cmoyl3r5b00056ljzlzw2yu83",
+        "name": "Theater Show - BookMyShow Style",
+        "startTime": "2027-03-30T19:30:00.000Z",
+        "bookings": 6,
+        "capacity": 100
+      }
+    ]
+  },
+  "users": {
+    "userActivity": [
+      {
+        "date": "2026-04-11",
+        "activeUsers": 13,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-12",
+        "activeUsers": 29,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-13",
+        "activeUsers": 26,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-14",
+        "activeUsers": 20,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-15",
+        "activeUsers": 16,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-16",
+        "activeUsers": 16,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-17",
+        "activeUsers": 25,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-18",
+        "activeUsers": 17,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-19",
+        "activeUsers": 14,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-20",
+        "activeUsers": 16,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-21",
+        "activeUsers": 21,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-22",
+        "activeUsers": 10,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-23",
+        "activeUsers": 16,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-24",
+        "activeUsers": 10,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-25",
+        "activeUsers": 23,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-26",
+        "activeUsers": 13,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-27",
+        "activeUsers": 18,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-28",
+        "activeUsers": 25,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-29",
+        "activeUsers": 17,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-04-30",
+        "activeUsers": 28,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-05-01",
+        "activeUsers": 11,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-05-02",
+        "activeUsers": 27,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-05-03",
+        "activeUsers": 22,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-05-04",
+        "activeUsers": 22,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-05-05",
+        "activeUsers": 10,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-05-06",
+        "activeUsers": 21,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-05-07",
+        "activeUsers": 11,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-05-08",
+        "activeUsers": 10,
+        "newUsers": 0
+      },
+      {
+        "date": "2026-05-09",
+        "activeUsers": 3,
+        "newUsers": 3
+      },
+      {
+        "date": "2026-05-10",
+        "activeUsers": 1,
+        "newUsers": 1
+      }
+    ],
+    "userSegments": [
+      {
+        "segment": "New Users",
+        "count": 0,
+        "percentage": 0
+      },
+      {
+        "segment": "Regular Attendees",
+        "count": 0,
+        "percentage": 0
+      },
+      {
+        "segment": "VIP Members",
+        "count": 3,
+        "percentage": 100
+      },
+      {
+        "segment": "Inactive",
+        "count": 0,
+        "percentage": 0
+      }
+    ],
+    "topUsers": [
+      {
+        "id": "cmozicu1q00006lxzz2ijidtq",
+        "name": "h3xi",
+        "bookingsCount": 7,
+        "totalSpent": 1591.81
+      },
+      {
+        "id": "cmoyl3r4x00016ljzf779rkeq",
+        "name": "John Doe",
+        "bookingsCount": 1,
+        "totalSpent": 599.98
+      },
+      {
+        "id": "cmoyl3r4z00026ljz1x1i9upy",
+        "name": "Jane Smith",
+        "bookingsCount": 1,
+        "totalSpent": 599.97
+      }
+    ],
+    "retentionRate": 33.33333333333333
+  },
+  "bookings": {
+    "bookingTrends": [
+      {
+        "date": "2026-05-09",
+        "bookings": 2,
+        "revenue": 0
+      },
+      {
+        "date": "2026-05-10",
+        "bookings": 7,
+        "revenue": 0
+      }
+    ],
+    "bookingsByStatus": [
+      {
+        "status": "CANCELLED",
+        "count": 1
+      },
+      {
+        "status": "CONFIRMED",
+        "count": 8
+      }
+    ],
+    "averageBookingValue": null,
+    "peakBookingTimes": [
+      {
+        "hour": 0,
+        "count": 0
+      },
+      {
+        "hour": 1,
+        "count": 0
+      },
+      {
+        "hour": 2,
+        "count": 0
+      },
+      {
+        "hour": 3,
+        "count": 0
+      },
+      {
+        "hour": 4,
+        "count": 0
+      },
+      {
+        "hour": 5,
+        "count": 0
+      },
+      {
+        "hour": 6,
+        "count": 0
+      },
+      {
+        "hour": 7,
+        "count": 0
+      },
+      {
+        "hour": 8,
+        "count": 0
+      },
+      {
+        "hour": 9,
+        "count": 0
+      },
+      {
+        "hour": 10,
+        "count": 0
+      },
+      {
+        "hour": 11,
+        "count": 0
+      },
+      {
+        "hour": 12,
+        "count": 0
+      },
+      {
+        "hour": 13,
+        "count": 1
+      },
+      {
+        "hour": 14,
+        "count": 0
+      },
+      {
+        "hour": 15,
+        "count": 5
+      },
+      {
+        "hour": 16,
+        "count": 0
+      },
+      {
+        "hour": 17,
+        "count": 1
+      },
+      {
+        "hour": 18,
+        "count": 0
+      },
+      {
+        "hour": 19,
+        "count": 0
+      },
+      {
+        "hour": 20,
+        "count": 0
+      },
+      {
+        "hour": 21,
+        "count": 0
+      },
+      {
+        "hour": 22,
+        "count": 2
+      },
+      {
+        "hour": 23,
+        "count": 0
+      }
+    ],
+    "cancellationRate": 11.11111111111111
+  },
+  "revenue": {
+    "revenueByMonth": [
+      {
+        "month": "May",
+        "revenue": 2791.76,
+        "bookings": 9
+      }
+    ],
+    "revenueByCategory": [
+      {
+        "category": "Grand Theater",
+        "revenue": 1291.83,
+        "growth": 6.291076437997255
+      },
+      {
+        "category": "San Francisco Convention Center",
+        "revenue": 599.98,
+        "growth": -10.058891120734149
+      },
+      {
+        "category": "Central Park Amphitheater",
+        "revenue": 599.97,
+        "growth": 2.5471975058575715
+      },
+      {
+        "category": "Tech Campus Building A",
+        "revenue": 299.98,
+        "growth": 18.158857167691004
+      }
+    ],
+    "projectedRevenue": 41876.4,
+    "averageRevenuePerUser": 697.9399999999999
+  },
+  "lastUpdated": "2026-05-10T12:14:10.206Z"
+}

@@ -1,0 +1,26 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Three-Tier Architecture of the Evently Platform}}{19}{figure.caption.11}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces UML Use Case Diagram --" User and Admin Interactions}}{20}{figure.caption.12}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Level 0 Context DFD -- Evently External Entity Interactions}}{21}{figure.caption.13}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Entity Relationship Diagram --" Evently Database}}{23}{figure.caption.14}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Evently Landing Page --" Hero Section with Glassmorphism Design}}{39}{figure.caption.18}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Events Discovery Page --" Filter Panel and Card Grid}}{40}{figure.caption.19}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Event Detail Page --" Dark Theme with Booking Interface}}{41}{figure.caption.20}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Login Page --" Dark Glassmorphism Auth Form}}{42}{figure.caption.21}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Registration Page with Email Verification Instruction}}{42}{figure.caption.22}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces User Dashboard with Booking Cards and Stats}}{43}{figure.caption.23}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Generated PDF Ticket with JWT-Signed QR Code}}{44}{figure.caption.24}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Mobile QR Verification Page --" Valid Ticket State}}{44}{figure.caption.25}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Admin Dashboard --" KPI Cards and System Health}}{45}{figure.caption.26}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Advanced Analytics --" Revenue Charts and Performance Metrics}}{46}{figure.caption.27}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Booking Confirmation Email --" Dark Theme with CTA Button}}{47}{figure.caption.28}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Production Deployment Architecture Diagram}}{61}{figure.caption.38}%
+\addvspace {10\p@ }
